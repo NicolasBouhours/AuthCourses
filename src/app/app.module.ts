@@ -3,6 +3,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { routing } from './app.routes';
+
 import { AppComponent }   from './app.component';
 import { HeaderComponent } from "./shared/header.component";
 import { SigninComponent } from "./unprotected/signin.component";
@@ -18,7 +20,7 @@ import { ProtectedComponent } from "./protected/protected.component";
         SignupComponent,
         ProtectedComponent
     ],
-    imports: [BrowserModule, HttpModule, ReactiveFormsModule],
+    imports: [BrowserModule, HttpModule, ReactiveFormsModule, routing],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
