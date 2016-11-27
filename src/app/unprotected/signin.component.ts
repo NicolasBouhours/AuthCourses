@@ -1,3 +1,4 @@
+import { AuthService } from './../shared/auth.service';
 import {Component, OnInit} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -22,10 +23,10 @@ export class SigninComponent implements OnInit {
     error = false;
     errorMessage = '';
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder, private authService: AuthService) {}
 
     onSignin() {
-
+        this.authService.signinUser(this.myForm.value);
     }
 
     ngOnInit():any {

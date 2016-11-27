@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Component } from "@angular/core";
 
 @Component({
@@ -15,7 +16,7 @@ import { Component } from "@angular/core";
                         <li><a [routerLink]="['protected']">Protected</a></li>
         
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" *ngIf="isAuth">
         
                         <li><a>Logout</a></li>
                     </ul>
@@ -27,4 +28,10 @@ import { Component } from "@angular/core";
     `
 })
 export class HeaderComponent {
+
+    constructor(private authService: AuthService) { }
+
+    isAuth() {
+        return this.authService.isAuthenticated();
+    }
 }
